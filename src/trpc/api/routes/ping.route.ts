@@ -7,7 +7,8 @@ export default createRouter({
     .query(({ input, ctx }) => {
       return {
         message: `Hello ${input.name}`,
-        name: JSON.stringify(ctx),
+        userId: ctx.sessionUserId,
+        user: ctx.sessionUser,
       };
     }),
   pingMutation: publicProcedure
