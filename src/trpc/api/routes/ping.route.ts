@@ -4,9 +4,10 @@ import { createRouter, publicProcedure } from "@/trpc/api/trpc";
 export default createRouter({
   pingQuery: publicProcedure
     .input(z.object({ name: z.string() }))
-    .query(({ input }) => {
+    .query(({ input, ctx }) => {
       return {
         message: `Hello ${input.name}`,
+        name: JSON.stringify(ctx),
       };
     }),
   pingMutation: publicProcedure
