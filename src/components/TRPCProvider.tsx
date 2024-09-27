@@ -1,6 +1,6 @@
 "use client";
 
-import { AppRouter } from "@/trpc/api/root-router";
+import { AppRouter } from "@/trpc/api";
 import { trpc } from "@/trpc/trpc.client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {

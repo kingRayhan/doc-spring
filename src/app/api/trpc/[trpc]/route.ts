@@ -1,4 +1,4 @@
-import { trpcRootRouter } from "@/trpc/api/root-router";
+import { trpcRootRouter } from "@/trpc/api";
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
 
 const handler = (request: Request) => {

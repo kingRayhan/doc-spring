@@ -1,5 +1,6 @@
-import { trpcRootRouter } from "@/trpc/api/root-router";
-import { t } from "@/trpc/api/trpc.server";
+import { t, trpcRootRouter } from "@/trpc/api";
 
 const createCaller = t.createCallerFactory(trpcRootRouter);
-export const trpcServerApi = createCaller({});
+export const trpcServerApi = createCaller({
+  appName: "trpc-next-example",
+});

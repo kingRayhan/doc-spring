@@ -1,16 +1,15 @@
-import { createTrpcRouter, trpcPublicProcedure } from "@/trpc/api/trpc.server";
 import { z } from "zod";
+import { createRouter, publicProcedure } from "@/trpc/api/trpc";
 
-export default createTrpcRouter({
-  pingQuery: trpcPublicProcedure
+export default createRouter({
+  pingQuery: publicProcedure
     .input(z.object({ name: z.string() }))
     .query(({ input }) => {
       return {
         message: `Hello ${input.name}`,
       };
     }),
-
-  pingMutation: trpcPublicProcedure
+  pingMutation: publicProcedure
     .input(
       z.object({
         message: z.string(),
@@ -21,4 +20,9 @@ export default createTrpcRouter({
         message: input.message,
       };
     }),
+  secretQuery: publicProcedure.query(({ ctx }) => {
+    return {
+      message: `Hello secondQuery`,
+    };
+  }),
 });

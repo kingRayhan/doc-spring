@@ -1,7 +1,7 @@
-import { createTrpcRouter } from "./trpc.server";
 import pingRoute from "@/trpc/api/routes/ping.route";
+import { createRouter } from "@/trpc/api/trpc";
 
-export const trpcRootRouter = createTrpcRouter({
+export const trpcRootRouter = createRouter({
   ping: pingRoute,
 });
 
